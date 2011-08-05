@@ -2,7 +2,7 @@
 alias sagi='sudo apt-get install'
 alias sagr='sudo apt-get remove'
 
-alias runieee='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/IEEE/ieeetags; python manage.py runserver'
+alias runieee='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/IEEE/ieeetags; python manage.py runserver 8001'
 alias runlockify='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/Lockify/Lockify-Webapp; python manage.py runserver --settings=settings.dev_settings'
 
 # Run the last line of the stderr output of the previous command
