@@ -22,16 +22,15 @@ alias sagi='sudo apt-get install'
 alias sagr='sudo apt-get remove'
 
 alias sshieee='ssh -i ~/.ssh/ieee_slicehost_rsa systemicist@newdev.systemicist.com'
-alias runieee='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/IEEE/ieeetags; python manage.py runserver 8001'
+alias runieee='workon lockify-env; cd ~/Documents/IEEE/ieeetags; python manage.py runserver 8001'
 alias deploynewdev='cd ~/Documents/IEEE/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_newdev checkout_site'
 
-alias activate_lockify='source ~/virtualenv/lockify-env/bin/activate'
 alias sshdev='ssh -i ~/.ssh/lockify_slicehost_rsa lockify@dev.lockify.com'
 alias sshpreview='ssh -i ~/.ssh/lockify_firehost_rsa lockify@preview.lockify.com'
-alias runlockify='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/Lockify/Lockify-Webapp; python manage.py runserver --settings=settings.dev_settings'
-alias deploydev='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/Lockify; fab -f fab.py site_lockify_dev deploy'
-alias deployalldev='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/Lockify; fab -f fab.py site_lockify_dev deploy_all_dev'
-alias deploydevadmin='source ~/virtualenv/lockify-env/bin/activate; cd ~/Documents/Lockify; fab -f fab.py site_lockify_dev_admin deploy'
+alias runlockify='workon lockify-dev; cd ~/Documents/Lockify/Lockify-Webapp; python manage.py runserver --settings=settings.dev_settings'
+alias deploydev='workon lockify-dev; cd ~/Documents/Lockify; fab -f fab.py site_lockify_dev deploy'
+alias deployalldev='workon lockify-dev; cd ~/Documents/Lockify; fab -f fab.py site_lockify_dev deploy_all_dev'
+alias deploydevadmin='workon lockify-dev; cd ~/Documents/Lockify; fab -f fab.py site_lockify_dev_admin deploy'
 
 # Run the last line of the stderr output of the previous command
 # Useful when apt-get ends error with install command.
