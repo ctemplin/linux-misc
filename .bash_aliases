@@ -1,6 +1,9 @@
 # edit this file
 alias edalias='emacs ~/bitbucket_ctemplin/.bash_aliases'
 
+# list current subdirs by size
+alias subdirsbysize='du -h --max-depth 1 | sort -hr'
+
 # re-run the last command piped to less
 alias withless='$(history -p !!)|less'
 
