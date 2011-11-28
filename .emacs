@@ -1,10 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 
  ;; (autoload 'install "install" "" t)
-
-(autoload 'goto-last-change "goto-last-change" "Set point to the position of the last change." t)
-(global-set-key "\C-x\C-\\" 'goto-last-change)
 
 (when (fboundp 'windmove-default-keybindings)
   ;; Use shift+arrow to switch window
@@ -22,15 +18,35 @@
 ;; hilight current line
 ;;(global-hl-line-mode 1)
 
-;; Color themes
+
+;; ============== Default Modes ===================\\
+;; Replace region when yanking
+(delete-selection-mode 1)
+
+;; ============== Color themes =====================\\
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-feng-shui)
+(color-theme-euphoria)
+
+
+
+;; ============== Key Bindings =====================\\
+(global-set-key [insert]    'overwrite-mode) ; [Ins] 
+
+(autoload 'goto-last-change "goto-last-change" "Set point to the position of the last change." t)
+(global-set-key "\C-x\C-\\" 'goto-last-change)
+
+(global-set-key "\C-l" 'goto-line) ; [Ctrl]-[L] 
 
 ;; ========== Support Wheel Mouse Scrolling ==========
 (when (fboundp 'mouse-wheel-mode)
   (mouse-wheel-mode t)
 )
+
+;; ================ Icicles =======================\\
+(add-to-list 'load-path "~/.emacs.d/icicles")
+(require 'icicles)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
