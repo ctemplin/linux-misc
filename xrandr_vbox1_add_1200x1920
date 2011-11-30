@@ -1,0 +1,4 @@
+xrandr --newmode "1200x1920" 196.50  1200 1296 1424 1648  1920 1923 1933 1989 -hsync +vsync
+xrandr --addmode VBOX1 1200x1920
+xrandr --output VBOX1 --mode 1200x1920
+xrandr --output VBOX1 --right-of VBOX0
