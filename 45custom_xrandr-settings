@@ -1,0 +1,13 @@
+EXTERNAL_OUTPUT='DVI-I-1' 
+INTERNAL_OUTPUT='LVDS-1'
+EXTERNAL_LOCATION="--right-of $INTERNAL_OUTPUT"
+
+xrandr |grep $EXTERNAL_OUTPUT | grep " connected "
+if [ $? -eq 0 ]; then
+    xrandr --output $INTERNAL_OUTPUT --primary --auto
+    xrandr --output $EXTERNAL_OUTPUT $EXTERNAL_LOCATION --auto --rotate left
+    # Alternative command in case of trouble:
+    # (sleep 2; xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --auto $EXTERNAL_LOCATION) &
+else
+    xrandr --output $INTERNAL_OUTPUT --auto --output $EXTERNAL_OUTPUT --off
+fi
