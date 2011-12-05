@@ -61,6 +61,9 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# 
+export TERM=xterm-256color
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)

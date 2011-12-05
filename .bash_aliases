@@ -19,7 +19,7 @@ alias cdi='cd ~/Documents/IEEE/ieeetags'
 alias hglog='hg log | less'
 alias hgf='hg fetch -m "Merge"'
 
-alias runSe='java -jar /usr/bin/selenium-server-standalone-2.11.0.jar -firefoxProfileTemplate ~/.mozilla/firefox/k733gpy4.selenium'
+alias runSe='java -jar /usr/bin/selenium-server-standalone-2.14.0.jar -firefoxProfileTemplate ~/.mozilla/firefox/k733gpy4.selenium'
 
 alias sagi='sudo apt-get install'
 alias sagr='sudo apt-get remove'

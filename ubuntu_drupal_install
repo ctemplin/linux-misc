@@ -1,0 +1,20 @@
+sudo apt-get instal libapache2-mod-php5
+sudo apt-get install php5-mysql
+sudo apt-get install php5-gd
+
+sudo apt-get install pear
+sudo pear upgrade
+sudo pear channel-discover pear.drush.org
+sudo pear instll drush/drush
+# gets drush v4.5
+
+wget http://ftp.drupal.org/files/projects/drupal-7.9.tar.gz
+gzip -d drupal-7.9.tar.gz
+tar -xvf drupal-7.9.tar
+rm drupal-7.9.tar
+ln -s drupal-7.9/ drupal
+cd drupal/sites
+
+drush -r ../../../drupal
+
+drush -l dev-www.blockify.com si --db-url=mysql://root:****@localhost:3306/dev_www_blockify
