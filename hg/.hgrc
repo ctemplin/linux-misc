@@ -1,0 +1,48 @@
+[ui]
+; editor used to enter commit logs, etc. Most text editors will work.
+editor = emacs
+username = Chris Templin <ctemplin@lockify.com>
+ssh = ssh -i ~/.ssh/bitbucket_secondo-u_rsa
+#merge = bcomp
+
+[extensions]
+hgext.fetch=
+hgext.convert=
+extdiff=
+transplant=
+shelve=~/.hgext/hgshelve/hgshelve.py
+; hgjslint=~/.hgext/hgjslint/hgjslint.py
+#kiln = ~/.hgext/kiln/kiln.py
+#kilnauth = ~/.hgext/kiln/kilnauth.py
+
+#[pivotal]
+# your pivotal token
+# curl -u USERNAME:PASSWORD -X GET https://www.pivotaltracker.com/services/v3/#tokens/active
+#token = c73466eb7c59ef2acdc8b834ecf9604e
+#token = 43525
+
+
+#[extdiff]
+#cmd.bcomp = C:\Program Files\Beyond Compare 3\BCompare.exe
+#opts.bcomp = /leftreadonly
+
+#[merge-tools]
+#bcomp.executable = C:\Program Files\Beyond Compare 3\BComp
+#bcomp.args = /leftreadonly /centerreadonly $local $other $base $output
+#bcomp.priority = 1
+
+
+[kiln]
+
+[auth]
+#kiln.prefix= https://sweetfancy.kilnhg.com/
+#kiln.username=ctemplin@lockify.com
+#kiln.password=zpdhTN5!
+#kiln.schemes=*
+
+#[hooks]
+#changegroup.pivotal = python:C:\Users\ctemplin\Documents\hgpivotal-source\hgpivotal.py:hook
+
+[web]
+#baseurl = https://sweetfancy.kilnhg.com/Repo/Repositories/Development/Lockify-Webapp
+
