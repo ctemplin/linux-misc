@@ -1,0 +1,6 @@
+source ~/.virtualenvs/lockify/bin/activate
+cd ~/Documents/lockify
+fab -f fab_v$1.py site_lockify_stage deploy
+fab -f fab_v$1.py site_lockify_demo deploy
+fab -f fab_v$1.py site_lockify_stage_admin deploy
+fab -f fab_v$1.py site_lockify_demo_admin deploy
