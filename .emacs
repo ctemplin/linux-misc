@@ -15,6 +15,12 @@
 (add-to-list 'ac-dictionary-directories "~/emacs.d//ac-dict")
 (ac-config-default)
 
+;; js2-mode.el
+(setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
+(autoload 'js2-mode "js2-20090723b" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+
 ;; hilight current line
 ;;(global-hl-line-mode 1)
 
