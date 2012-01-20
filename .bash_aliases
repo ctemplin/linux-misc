@@ -14,7 +14,7 @@ alias ffsec='firefox --no-remote -P Secure'
 alias runburp='java -jar /usr/bin/burpsuite_v.1.4.jar &'
 
 alias cdl='cd ~/Documents/lockify/webapp'
-alias cdi='cd ~/Documents/IEEE/ieeetags'
+alias cdi='cd ~/Documents/ieee/ieeetags'
 
 alias hglog='hg log | less'
 alias hgf='hg fetch -m "Merge"'
@@ -25,10 +25,10 @@ alias sagi='sudo apt-get install'
 alias sagr='sudo apt-get remove'
 
 alias sshieee='ssh -i ~/.ssh/ieee_slicehost_rsa systemicist@newdev.systemicist.com'
-alias runieee='workon lockify; cd ~/Documents/IEEE/ieeetags; python manage.py runserver 8001'
-alias deploynewdev='cd ~/Documents/IEEE/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_newdev checkout_site'
+alias runieee='workon lockify; cd ~/Documents/ieee/ieeetags; python manage.py runserver 8001'
+alias deploynewdev='cd ~/Documents/ieee/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_newdev checkout_site'
 
-alias sshfr='ssh -i ~/.ssh/lockify_firehost_rsa ctemplin@71.41.152.30'
+alias sshfr='ssh -i ~/.ssh/lockify_fallingrock_rsa ctemplin@71.41.152.30'
 
 alias sshdev='ssh -i ~/.ssh/lockify_slicehost_rsa lockify@dev.lockify.com'
 alias sshpreview='ssh -i ~/.ssh/lockify_firehost_rsa lockify@preview.lockify.com'
@@ -42,3 +42,5 @@ alias deploydevadmin='workon lockify; cd ~/Documents/lockify; fab -f fab.py site
 # Potentially dangerous so verification is turned on first, then turned off again. EDIT: no it's not yet. Probably need to make a script.
 alias ell='`history -p !!` 2>&1 | `tail -n 1`'
 alias lock='xscreensaver-command -lock'
+alias bbvnc="vncviewer -encodings 'copyrect tight zrle hextile' localhost:5900"
+alias sshtunnel="ssh -i /home/ctemplin/.ssh/lockify_slicehost_rsa -N -T -L 5900:localhost:5900 lockify@dev.lockify.com &"
