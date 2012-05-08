@@ -7,6 +7,10 @@ alias subdirsbysize='du -h --max-depth 1 | sort -hr'
 # re-run the last command piped to less
 alias withless='$(history -p !!)|less'
 
+alias lsd='ls */ -dl'
+
+alias lockifylines='cloc ./ --exclude-dir=./generated_files,./media/checksummed,media/scripts/lib,./appcheck-extension,./twitterapp,./chrome_ext,./docs,./_git_publish_media,./git_publish_manifest,./google_gadget,./hg,./lockify_browser_perf,./media/cscc,./media/scripts/unpublished --not-match-f=^*_sprite.css'
+
 # open browsers
 alias ffpm='firefox --no-remote --profilemanager'
 alias ffsec='firefox --no-remote -P Secure'
@@ -27,8 +31,9 @@ alias sagr='sudo apt-get remove'
 alias sshieee='ssh -i ~/.ssh/ieee_slicehost_rsa systemicist@newdev.systemicist.com'
 alias runieee='workon lockify; cd ~/Documents/ieee/ieeetags; python manage.py runserver 8001'
 alias deploynewdev='cd ~/Documents/ieee/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_newdev checkout_site'
+alias deployieeestage='cd ~/Documents/ieee/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_stage checkout_site'
 
-alias sshfr='ssh -i ~/.ssh/lockify_fallingrock_rsa ctemplin@71.41.152.30'
+alias sshfr='ssh -i ~/.ssh/lockify_fallingrock_rsa ctemplin@71.41.152.29'
 
 alias sshdev='ssh -i ~/.ssh/lockify_slicehost_rsa lockify@dev.lockify.com'
 alias sshpreview='ssh -i ~/.ssh/lockify_firehost_rsa lockify@preview.lockify.com'
@@ -44,3 +49,5 @@ alias ell='`history -p !!` 2>&1 | `tail -n 1`'
 alias lock='xscreensaver-command -lock'
 alias bbvnc="vncviewer -encodings 'copyrect tight zrle hextile' localhost:5900"
 alias sshtunnel="ssh -i /home/ctemplin/.ssh/lockify_slicehost_rsa -N -T -L 5900:localhost:5900 lockify@dev.lockify.com &"
+
+alias lcgf="linkchecker generated_files/*.html --ignore-url='^file(?!.*(generated_files).*)'"
