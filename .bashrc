@@ -7,7 +7,7 @@
 
 # Set the PATH var
 if [ -d ~/bin ]; then
-  export PATH=$PATH:/home/ctemplin/bin
+  export PATH=$PATH:/home/ctemplin/bin:/usr/local/bin/flex/bin
 fi
 
 # don't put duplicate lines in the history. See bash(1) for more options
