@@ -51,3 +51,9 @@ alias bbvnc="vncviewer -encodings 'copyrect tight zrle hextile' localhost:5900"
 alias sshtunnel="ssh -i /home/ctemplin/.ssh/lockify_slicehost_rsa -N -T -L 5900:localhost:5900 lockify@dev.lockify.com &"
 
 alias lcgf="linkchecker generated_files/*.html --ignore-url='^file(?!.*(generated_files).*)'"
+
+
+# XRANDR
+alias xr1="xrandr --output LVDS1 --auto"
+alias xr2="xr1 && xrandr --output VGA1 --auto --rotate left --right-of LVDS1"
+
