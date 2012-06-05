@@ -15,6 +15,11 @@ set $w1name "1: comms"
 set $w2name "2: web"
 set $w3name "3: emacs"
 set $w4name "4: ssh"
+set $w5name "5: "
+set $w6name "6: "
+set $w7name "7: "
+set $w8name "8: vagrant"
+set $w9name "9: vnc"
 set $w10name "10: sys"
 
 # font for window titles. ISO 10646 = Unicode
@@ -87,11 +92,11 @@ bindsym $mod+1 workspace $w1name
 bindsym $mod+2 workspace $w2name
 bindsym $mod+3 workspace $w3name
 bindsym $mod+4 workspace $w4name
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+5 workspace $w5name
+bindsym $mod+6 workspace $w6name
+bindsym $mod+7 workspace $w7name
+bindsym $mod+8 workspace $w8name
+bindsym $mod+9 workspace $w9name
 bindsym $mod+0 workspace $w10name
 
 # move focused container to workspace
@@ -99,11 +104,11 @@ bindsym $mod+Shift+exclam move container to workspace $w1name
 bindsym $mod+Shift+at move container to workspace $w2name
 bindsym $mod+Shift+numbersign move container to workspace $w3name
 bindsym $mod+Shift+dollar move container to workspace $w4name
-bindsym $mod+Shift+percent move container to workspace 5
-bindsym $mod+Shift+asciicircum move container to workspace 6
-bindsym $mod+Shift+ampersand move container to workspace 7
-bindsym $mod+Shift+asterisk move container to workspace 8
-bindsym $mod+Shift+parenleft move container to workspace 9
+bindsym $mod+Shift+percent move container to workspace $w5name
+bindsym $mod+Shift+asciicircum move container to workspace $w6name
+bindsym $mod+Shift+ampersand move container to workspace $w7name
+bindsym $mod+Shift+asterisk move container to workspace $w8name
+bindsym $mod+Shift+parenleft move container to workspace $w9name
 bindsym $mod+Shift+parenright move container to workspace $w10name
 
 # reload the configuration file
@@ -156,11 +161,11 @@ bindsym $mod+Ctrl+Mod1+Right move workspace to output right
 bindsym $mod+B border toggle
 
 # Volume controls
-bindsym XF86AudioLowerVolume exec pacmd_volume_down.sh
-bindsym XF86AudioRaiseVolume exec pacmd_volume_up.sh
+bindsym XF86AudioLowerVolume exec alsa_master_down.sh
+bindsym XF86AudioRaiseVolume exec alsa_master_up.sh
 # Mic Level
-bindsym Shift+XF86AudioLowerVolume exec pacmd_microphone_down.sh
-bindsym Shift+XF86AudioRaiseVolume exec pacmd_microphone_up.sh
+bindsym Shift+XF86AudioLowerVolume exec alsa_capture_down.sh
+bindsym Shift+XF86AudioRaiseVolume exec alsa_capture_up.sh
 
 focus_follows_mouse no
 
@@ -190,10 +195,10 @@ exec move container to workspace "2: web"
 exec emacs
 exec move container to workspace "3: emacs"
 
-exec_always workspace $w10name
-exec_always alsamixer
+exec workspace $w10name
 
 ### Floating Windows ###
 for_window [title="PasswordSafeSWT"] floating enable
+for_window [title="Skype"] floating enable
 
 ### Auto-started programs ###
