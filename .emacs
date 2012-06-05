@@ -15,6 +15,8 @@
 (add-to-list 'ac-dictionary-directories "~/emacs.d//ac-dict")
 (ac-config-default)
 
+(require 'puppet-mode)
+
 ;; js2-mode.el
 (setq load-path (append (list (expand-file-name "~/.emacs.d/js2")) load-path))
 (autoload 'js2-mode "js2-20090723b" nil t)
