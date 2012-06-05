@@ -3,7 +3,7 @@
 editor = emacs
 username = Chris Templin <ctemplin@lockify.com>
 ssh = ssh -i ~/.ssh/bitbucket_secondo-u_rsa
-#merge = bcomp
+#merge = emacs
 
 [extensions]
 hgext.fetch=
@@ -46,3 +46,5 @@ shelve=~/.hgext/hgshelve/hgshelve.py
 [web]
 #baseurl = https://sweetfancy.kilnhg.com/Repo/Repositories/Development/Lockify-Webapp
 
+[merge-tools]
+#emacs.args = -q --eval "(ediff-merge-with-ancestor \"$local\" \"$other\" \"$base\" nil \"$output\")"
