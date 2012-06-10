@@ -37,6 +37,7 @@ alias sshfr='ssh -i ~/.ssh/lockify_fallingrock_rsa ctemplin@71.41.152.29'
 
 alias sshdev='ssh -i ~/.ssh/lockify_slicehost_rsa lockify@dev.lockify.com'
 alias sshpreview='ssh -i ~/.ssh/lockify_firehost_rsa lockify@preview.lockify.com'
+alias sshci='ssh -i ~/.ssh/lockify_slicehost_ras lockifyci@184.106.134.100'
 alias runlockify='workon lockify; cd ~/Documents/lockify/webapp; python manage.py runserver --settings=settings.dev_settings'
 alias deploydev='workon lockify; cd ~/Documents/lockify; fab -f fab.py site_lockify_dev deploy'
 alias deployalldev='workon lockify; cd ~/Documents/lockify; fab -f fab.py site_lockify_dev deploy_all_dev'
