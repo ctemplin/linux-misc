@@ -48,3 +48,4 @@ shelve=~/.hgext/hgshelve/hgshelve.py
 
 [merge-tools]
 #emacs.args = -q --eval "(ediff-merge-with-ancestor \"$local\" \"$other\" \"$base\" nil \"$output\")"
+
