@@ -55,6 +55,6 @@ alias lcgf="linkchecker generated_files/*.html --ignore-url='^file(?!.*(generate
 
 
 # XRANDR
-alias xr1="xrandr --output LVDS1 --auto"
+alias xr1="xrandr --output VGA1 --off"
 alias xr2="xr1 && xrandr --output VGA1 --auto --rotate left --right-of LVDS1"
 
