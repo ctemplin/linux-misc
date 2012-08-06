@@ -28,7 +28,7 @@ alias runSe='java -jar /usr/bin/selenium-server-standalone-2.14.0.jar -firefoxPr
 alias sagi='sudo apt-get install'
 alias sagr='sudo apt-get remove'
 
-alias sshieee='ssh -i ~/.ssh/ieee_slicehost_rsa systemicist@newdev.systemicist.com'
+alias sshieee='ssh -i ~/.ssh/ieee_slicehost_rsa systemicist@technav.systemicist.com'
 alias runieee='workon lockify; cd ~/Documents/ieee/ieeetags; python manage.py runserver 8001'
 alias deploynewdev='cd ~/Documents/ieee/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_newdev checkout_site'
 alias deployieeestage='cd ~/Documents/ieee/; export PYTHONPATH=.:~/Documents/Python_Path_Included; fab -f fab_ieee.py site_ieee_stage checkout_site'
@@ -37,7 +37,7 @@ alias sshfr='ssh -i ~/.ssh/lockify_fallingrock_rsa ctemplin@71.41.152.29'
 
 alias sshdev='ssh -i ~/.ssh/lockify_slicehost_rsa lockify@dev.lockify.com'
 alias sshpreview='ssh -i ~/.ssh/lockify_firehost_rsa lockify@preview.lockify.com'
-alias sshci='ssh -i ~/.ssh/lockify_slicehost_ras lockifyci@184.106.134.100'
+alias sshci='ssh -i ~/.ssh/lockify_slicehost_rsa lockifyci@184.106.134.100'
 alias runlockify='workon lockify; cd ~/Documents/lockify/webapp; python manage.py runserver --settings=settings.dev_settings'
 alias deploydev='workon lockify; cd ~/Documents/lockify; fab -f fab.py site_lockify_dev deploy'
 alias deployalldev='workon lockify; cd ~/Documents/lockify; fab -f fab.py site_lockify_dev deploy_all_dev'
@@ -49,7 +49,7 @@ alias deploydevadmin='workon lockify; cd ~/Documents/lockify; fab -f fab.py site
 alias ell='`history -p !!` 2>&1 | `tail -n 1`'
 alias lock='xscreensaver-command -lock'
 alias bbvnc="vncviewer -encodings 'copyrect tight zrle hextile' localhost:5900"
-alias sshtunnel="ssh -i /home/ctemplin/.ssh/lockify_slicehost_rsa -N -T -L 5900:localhost:5900 lockify@dev.lockify.com &"
+alias sshtunnel="ssh -i /home/ctemplin/.ssh/lockify_slicehost_rsa -N -T -L 5900:localhost:5900 lockifyci@ci.lockify.com &"
 
 alias lcgf="linkchecker generated_files/*.html --ignore-url='^file(?!.*(generated_files).*)'"
 
