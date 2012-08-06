@@ -6,6 +6,7 @@ ssh = ssh -i ~/.ssh/bitbucket_secondo-u_rsa
 #merge = emacs
 
 [extensions]
+color=
 hgext.fetch=
 hgext.convert=
 extdiff=
