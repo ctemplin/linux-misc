@@ -26,9 +26,13 @@
 (require 'tramp)
 (setq tramp-default-method "scp")
 
+;; Fuzzy-match
+(require 'fuzzy-match)
+
 ;; hilight current line
 ;;(global-hl-line-mode 1)
 
+(recentf-mode 1)
 
 ;; ============== Default Modes ===================\\
 ;; Replace region when yanking
@@ -67,6 +71,7 @@
  '(grep-find-ignored-directories (quote ("chrome_ext/builds" "checksummed" "_git_publish_media" "unpublished")))
  '(ido-enable-flex-matching t)
  '(indent-tabs-mode nil)
+ '(tab-stop-list (quote (4 8 12 16 20 24 28 32 40 48 56 64 72 80 88 96 104 112 120)))
  '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
