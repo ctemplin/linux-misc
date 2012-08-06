@@ -1,0 +1,2 @@
+mkdir -p ~/Documents/lockify/specific_size_files
+dd if=/dev/urandom of=~/Documents/lockify/specific_size_files/f_$1_$2.dat bs=1$2 count=$1
