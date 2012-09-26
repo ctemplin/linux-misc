@@ -14,6 +14,9 @@ transplant=
 shelve=~/.hgext/hgshelve/hgshelve.py
 ; hgjslint=~/.hgext/hgjslint/hgjslint.py
 pager=
+graphlog=
+hgk=
+mq=
 #kiln = ~/.hgext/kiln/kiln.py
 #kilnauth = ~/.hgext/kiln/kilnauth.py
 
@@ -24,9 +27,10 @@ pager=
 #token = 43525
 
 
-#[extdiff]
+[extdiff]
 #cmd.bcomp = C:\Program Files\Beyond Compare 3\BCompare.exe
 #opts.bcomp = /leftreadonly
+cmd.meld = 
 
 #[merge-tools]
 #bcomp.executable = C:\Program Files\Beyond Compare 3\BComp
