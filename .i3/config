@@ -151,7 +151,7 @@ bindsym $mod+r mode "resize"
 # }
 
 # ctemplin customizations
-bindcode 160 exec i3lock
+bindcode 160 exec i3lock # -i ~/Pictures/scrot1.png
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
@@ -200,5 +200,6 @@ exec workspace $w10name
 ### Floating Windows ###
 for_window [title="PasswordSafeSWT"] floating enable
 for_window [title="Skype"] floating enable
+for_window [title="Cisco AnyConnect VPN Client"] floating enable
 
 ### Auto-started programs ###
