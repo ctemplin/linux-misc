@@ -54,6 +54,7 @@ bindsym $mod+Shift+J move left
 bindsym $mod+Shift+K move down
 bindsym $mod+Shift+L move up
 bindsym $mod+Shift+colon move right
+for_window [title="Skype"] floating enable
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -151,7 +152,7 @@ bindsym $mod+r mode "resize"
 # }
 
 # ctemplin customizations
-bindcode 160 exec i3lock # -i ~/Pictures/scrot1.png
+bindcode 160 exec i3lock -i ~/Pictures/wallpapers/`ls ~/Pictures/wallpapers/ | sort -R | head -1`
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
@@ -201,5 +202,5 @@ exec workspace $w10name
 for_window [title="PasswordSafeSWT"] floating enable
 for_window [title="Skype"] floating enable
 for_window [title="Cisco AnyConnect VPN Client"] floating enable
-
+for_window [title="Bluetooth Devices"] floating enable
 ### Auto-started programs ###
