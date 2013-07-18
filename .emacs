@@ -24,7 +24,22 @@
 
 ;; Tramp - remote file editing
 (require 'tramp)
-(setq tramp-default-method "scp")
+(setq tramp-default-method "ssh")
+
+(add-to-list 'tramp-default-proxies-alist '("sudoprod\\'"  "\\`root\\'" "/ssh:lockify@%h:"))
+(add-to-list 'tramp-default-proxies-alist '("sudocomplyify\\'"  "\\`root\\'" "/ssh:ubuntu@%h:"))
+(add-to-list 'tramp-default-proxies-alist '("sudonewdev\\'"  "\\`root\\'" "/ssh:systemicist@%h:"))
+(add-to-list 'tramp-default-proxies-alist '("sudotechnav\\'"  "\\`root\\'" "/ssh:systemicist@%h:"))
+(add-to-list 'tramp-default-proxies-alist '("sudotechnavtemp\\'"  "\\`root\\'" "/ssh:systemicist@%h:"))
+(add-to-list 'tramp-default-proxies-alist '("sudonewdevold\\'"  "\\`root\\'" "/ssh:systemicist@%h:"))
+(add-to-list 'tramp-default-proxies-alist '("sudodev\\'"  "\\`root\\'" "/ssh:lockify@%h:"))
+
+
+(add-to-list 'load-path "~/.emacs.d/elpa/bookmark+-20130108.444")
+(require 'bookmark+)
+
+(add-to-list 'load-path "~/.emacs.d/elpa/dired+-20130206.1702")
+(require 'dired+)
 
 ;; Fuzzy-match
 (require 'fuzzy-match)
@@ -33,6 +48,17 @@
 ;;(global-hl-line-mode 1)
 
 (recentf-mode 1)
+
+;; itail
+(add-to-list 'load-path "~/.emacs.d/elpa/itail-20130102.1159/")
+(require 'itail)
+
+;; undo-tree
+(add-to-list 'load-path "~/.emacs.d/elpa/undo-tree-20130516.8/")
+(require 'undo-tree)
+
+
+
 
 ;; ============== Default Modes ===================\\
 ;; Replace region when yanking
@@ -54,10 +80,30 @@
 
 (global-set-key "\C-\M-l" 'goto-line) ; [Ctrl]-[Meta]-[L] 
 
+(defun backward-kill-line (arg)
+  "Kill ARG lines backward."
+  (interactive "p")
+  (kill-line (- 1 arg)))
+(global-set-key "\C-cu" 'backward-kill-line) ;; `C-c u'
+
 ;; ========== Support Wheel Mouse Scrolling ==========
 (when (fboundp 'mouse-wheel-mode)
   (mouse-wheel-mode t)
 )
+
+;; ========== Android for Emacs ==================
+(progn (setq android-sdk-root-path "/home/ctemplin/android-sdk-linux"))
+(setq android-default-package "com.zxy")
+
+(add-to-list 'load-path "/home/ctemplin/android-emacs-toolkit")
+(require 'androidmk-mode)
+(add-hook 'androidmk-mode-hook
+          (lambda ()
+            (progn 
+                   (local-set-key [C-f5] 'androidsdk-build)
+                   (local-set-key [C-S-f5] 'androidsdk-rebuild)
+                   )))
+ 
 
 ;; ================ Icicles =======================\\
 (add-to-list 'load-path "~/.emacs.d/icicles")
@@ -68,7 +114,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(grep-find-ignored-directories (quote ("chrome_ext/builds" "checksummed" "_git_publish_media" "unpublished")))
+ '(bmkp-last-as-first-bookmark-file "~/Documents/lockify/webapp/media/scripts/.emacs.bmk")
+ '(bookmark-version-control t)
+ '(case-fold-search t)
+ '(desktop-save-mode t)
+ '(ede-project-directories (quote ("/home/ctemplin/Documents/lockify/webapp")))
+ '(global-hl-line-mode t)
+ '(grep-find-ignored-directories (quote ("chrome_ext/builds" "checksummed" "_git_publish_media" "unpublished" "lib" "chrome_app/builds" "chrome_ext/builds")))
+ '(hl-line-sticky-flag nil)
+ '(icicle-buffer-configs (quote (("lockify_javascript" "*.js" "*.py" nil nil nil) ("All" nil nil nil nil icicle-case-string-less-p) ("Files" nil nil (lambda (bufname) (buffer-file-name (get-buffer bufname))) nil icicle-case-string-less-p) ("Files and Scratch" nil nil (lambda (bufname) (buffer-file-name (get-buffer bufname))) ("*scratch*") icicle-case-string-less-p) ("All, *...* Buffers Last" nil nil nil nil icicle-buffer-sort-*\.\.\.*-last))))
  '(ido-enable-flex-matching t)
  '(indent-tabs-mode nil)
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 40 48 56 64 72 80 88 96 104 112 120)))
@@ -78,7 +132,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 83 :width normal)))))
+ ;;  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 83 :width normal)))))
+ '(default ((t (:family "Inconsolata" :foundry "unknown" :slant normal :weight normal :height 83 :width normal)))))
 
 (windmove-default-keybindings)         ; shifted arrow keys
 
@@ -104,6 +159,10 @@
 ;;     (load
 ;;      (expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                           ("marmalade" . "http://marmalade-repo.org/packages/")
+                           ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 
 ;; ============= Mode Customizations =============\\
@@ -134,6 +193,8 @@
 (autoload 'wipe "revive" "Wipe Emacs" t)
 
 
+;; ============== YaSnippet ================\\
+(require 'yasnippet)
 
 ;; ============= Misc =================\\
 (defun whack-whitespace (arg)
