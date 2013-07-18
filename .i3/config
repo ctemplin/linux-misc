@@ -11,19 +11,21 @@
 
 set $mod Mod4
 
-set $w1name "1: comms"
-set $w2name "2: web"
+set $w1name "1: web"
+set $w2name "2: sec"
 set $w3name "3: emacs"
 set $w4name "4: ssh"
-set $w5name "5: "
-set $w6name "6: "
-set $w7name "7: "
+set $w5name "5: terms"
+set $w6name "6: terms 2"
+set $w7name "7: music"
 set $w8name "8: vagrant"
 set $w9name "9: vnc"
-set $w10name "10: sys"
+set $w10name "10: snd"
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 9
+font pango:Inconsolata 12px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -161,6 +163,9 @@ bindsym $mod+Ctrl+Mod1+Right move workspace to output right
 
 bindsym $mod+B border toggle
 
+bindsym $mod+plus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # Volume controls
 bindsym XF86AudioLowerVolume exec alsa_master_down.sh
 bindsym XF86AudioRaiseVolume exec alsa_master_up.sh
@@ -173,8 +178,11 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 
 bar {
-        status_command i3status # | i3-wsbar -c "dzen2 -x %x -dock"
-        mode hide
+        status_command i3status 
+        # status_command i3status | i3-wsbar -c "dzen2 -x %x -dock"
+        # status_command i3-wsbar -c "dzen2 -x %x -dock"
+
+        mode dock
         output LVDS1
         #font 
 }
@@ -188,19 +196,18 @@ bar {
 
 ### Auto-created Windows ###
 exec rename workspace 1 to $w1name
-exec chromium-browser
+exec google-chrome
 
-exec firefox
-exec move container to workspace "2: web"
+exec --no-startup-id i3-msg 'workspace "3: emacs"; exec emacs; workspace "1: comms"'
 
-exec emacs
-exec move container to workspace "3: emacs"
-
-exec workspace $w10name
+exec workspace $w1name
 
 ### Floating Windows ###
 for_window [title="PasswordSafeSWT"] floating enable
 for_window [title="Skype"] floating enable
 for_window [title="Cisco AnyConnect VPN Client"] floating enable
 for_window [title="Bluetooth Devices"] floating enable
+#for_window [title="Lockify App.*"] floating enable
+#for_window [title="Lockify Extension.*"] floating enable
+for_window [title="chrome-extension://.*"] floating enable
 ### Auto-started programs ###

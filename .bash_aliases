@@ -22,6 +22,13 @@ alias cdi='cd ~/Documents/ieee/ieeetags'
 
 alias hglog='hg log | less'
 alias hgf='hg fetch -m "Merge"'
+function hgic() {
+    hg incoming "$@" | grep "changeset" | wc -l
+}
+
+function hgoc() {
+    hg outgoing "$@" | grep "changeset" | wc -l
+}
 
 alias runSe='java -jar /usr/bin/selenium-server-standalone-2.14.0.jar -firefoxProfileTemplate ~/.mozilla/firefox/bo9g2gz2.selenium'
 
@@ -58,3 +65,7 @@ alias lcgf="linkchecker generated_files/*.html --ignore-url='^file(?!.*(generate
 alias xr1="xrandr --output VGA1 --off"
 alias xr2="xr1 && xrandr --output VGA1 --auto --rotate left --right-of LVDS1"
 
+
+
+alias throttleon="sudo tc qdisc add dev lo root netem delay 100ms"
+alias throttleoff="sudo tc qdisc del dev lo root netem delay 100ms"
