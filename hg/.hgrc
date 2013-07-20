@@ -58,3 +58,4 @@ cmd.meld =
 [pager]
 pager = LESS='FSRX' less
 ignore = version, help, update, serve, record
+attend = incoming, log
