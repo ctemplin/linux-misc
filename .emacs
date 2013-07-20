@@ -210,3 +210,22 @@ word."
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+
+
+;; ============== ModeLine stuff =================\\
+(setq uniquify-buffer-name-style 'forward)
+(require 'uniquify)
+
+(setq-default mode-line-buffer-identification
+  `(:eval
+    (let ((s (format-mode-line
+              (propertized-buffer-identification (buffer-name)))))
+      (when (and (boundp 'uniquify-managed) uniquify-managed)
+        (unless (string= (buffer-name) (uniquify-buffer-base-name))
+          (let ((base-len (length (uniquify-buffer-base-name)))
+                (full-len (length (buffer-name)))
+                (pre (eq uniquify-buffer-name-style 'forward)))
+            (let ((start (if pre 0 base-len))
+                  (end (if pre (- full-len base-len) full-len)))
+              (set-text-properties start end nil s)))))
+      s)))
