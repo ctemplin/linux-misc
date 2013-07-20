@@ -216,6 +216,7 @@ word."
 (setq uniquify-buffer-name-style 'forward)
 (require 'uniquify)
 
+;; Uniquify file name with path differences instead of the default <2>, <3>
 (setq-default mode-line-buffer-identification
   `(:eval
     (let ((s (format-mode-line
